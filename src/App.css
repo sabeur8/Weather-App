@@ -60,7 +60,7 @@ body{
     font-weight: 400;
     margin-top: -10px;
 }
-.deatils{
+.details{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,5 +79,5 @@ body{
 .humidity, .wind{
     font-size: 20px;
     margin-top:-6px ;
-    
+
 }
