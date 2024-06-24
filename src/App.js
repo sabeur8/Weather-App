@@ -20,6 +20,10 @@ function App() {
 
     try {
       const response = await  fetch(apiUrl +  `&q=${city}` +`&appid=${apiKey}` );
+      if (response.status != 200) {
+        alert('city not found');
+        setCity("");
+    }
       let data = await response.json();
       
       setHymidity(data.main.humidity);
@@ -33,21 +37,14 @@ function App() {
     
     }
     
-
-  
-
-
-
-
-  
   return (
     <div>
-      <div class="card">
-      <div class="search">
-        <input type="text" onChange={handleChange} placeholder="enter city name " spellCheck="false"/>
+      <div className="card">
+      <div className="search">
+        <input type="text" onChange={handleChange} placeholder="enter city name " spellCheck="false" value={city}/>
         <button onClick={checkWeather}> <img src ="images/search.png "/> </button>
       </div>
-      <div class="weather">
+      <div className="weather">
         <img src={`images/${weather}.png`} class="weather-icon"/>
         <h1 className='temp'> {temp}°c</h1>
         <h2 className='city'> {city}</h2>
