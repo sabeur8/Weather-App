@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Weatherdetail from './component/Wdetail';
 
 
 function App() {
@@ -40,30 +41,23 @@ function App() {
   return (
     <div>
       <div className="card">
+
       <div className="search">
-        <input type="text" onChange={handleChange} placeholder="enter city name " spellCheck="false" value={city}/>
+        <input type="text" onChange={handleChange} placeholder="enter city name " spellCheck="true" value={city}/>
         <button onClick={checkWeather}> <img src ="images/search.png "/> </button>
       </div>
+
       <div className="weather">
+
         <img src={`images/${weather}.png`} class="weather-icon"/>
         <h1 className='temp'> {temp}°c</h1>
         <h2 className='city'> {city}</h2>
+        
         <div className='details'>
-          <div className='col'>
-            <img src='images/humidity.png'/>
-            <div>
-              <p className='humidity'>{humidity} %</p>
-              <p>humidity</p>
-            </div>
-          </div>
-          <div className='col'>
-            <img src='images/wind.png'/>
-            <div>
-              <p className='wind'>{wind} kmh</p>
-              <p>wind speed</p>
-            </div>
-          </div>
+          <Weatherdetail data='humidity' info = {humidity} symbole ='%' parag ='humidity'/>
+          <Weatherdetail data ='wind' info = {wind} symbole = 'kmh' parag ='wind speed'/>
         </div>
+
       </div>
     </div>
     </div>
